@@ -1,8 +1,10 @@
-
 import java.util.Comparator
 import java.util.PriorityQueue
 
-data class Graph(private val vertexes: List<Vertex>) {
+data class Graph(val vertexes: List<Vertex>) {
+
+    val vertexCount: Int
+        get() = vertexes.size
 
     val edgesCount: Int
         get() = vertexes.sumBy {
@@ -32,7 +34,9 @@ data class Graph(private val vertexes: List<Vertex>) {
             val connectedVertexNames = emptySet<Int>().toMutableSet()
             addAllNewConnectedVertexes(firstVertex, connectedVertexNames)
 
-            val coherentComponent = CoherentComponent(connectedVertexNames)
+            val coherentComponent = CoherentComponent(vertexes.filter {
+                connectedVertexNames.contains(it.name)
+            })
             coherentComponents.add(coherentComponent)
 
             vertexNames.removeAll(connectedVertexNames)
@@ -54,15 +58,22 @@ data class Graph(private val vertexes: List<Vertex>) {
         }
     }
 
-    inner class CoherentComponent(private val vertexNames: Set<Int>) {
+    inner class CoherentComponent(private val coherentVertexes: List<Vertex>) {
 
-        fun getDistances(): MutableCollection<Int> {
+        fun getAllDistances(): List<Int> {
+            val distances = emptyList<Int>().toMutableList()
+            for (vertex: Vertex in coherentVertexes) {
+                val vertexDistances = getDistancesFromVertex(vertex)
+                distances.addAll(vertexDistances)
+            }
+            return distances.toList()
+        }
 
+        private fun getDistancesFromVertex(startingVertex: Vertex): Collection<Int> {
             val distances = emptyMap<Int, Int>().toMutableMap()
             val marks = emptyMap<Int, Boolean>().toMutableMap()
 
             val priorityQueue = PriorityQueue<Vertex>(Comparator.comparingInt({ distances.getOrDefault(it.name, Int.MAX_VALUE / 2) }))
-            val startingVertex = vertexes[vertexNames.elementAt(0) - 1]
             distances[startingVertex.name] = 0
             priorityQueue.add(startingVertex)
             while (priorityQueue.size > 0) {
@@ -81,3 +92,4 @@ data class Graph(private val vertexes: List<Vertex>) {
         }
     }
 }
+
