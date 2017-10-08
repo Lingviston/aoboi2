@@ -8,7 +8,7 @@ public class Main {
     private static final String AVERAGE_VALUES_PATTERN = "Built %d graphs with n = %d, m = %d. Average distance between " +
             "vertexes in a single coherency component is %f. Coherency probability is %.2f.";
 
-    private static final int GRAPHS_COUNT = 100;
+    private static final int GRAPHS_COUNT = 1000;
 
     private static final int VERTEX_COUNT = 4000;
     private static final int GRAPH_SCALE = 10;
