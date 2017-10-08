@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lab 2-aoboi2.iml" filepath="$PROJECT_DIR$/.idea/modules/Lab 2-aoboi2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aoboi2.iml" filepath="$PROJECT_DIR$/.idea/modules/aoboi2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2.iml" filepath="$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2.iml" group="aoboi2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2_main.iml" group="aoboi2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/main/aoboi2-aoboi2_test.iml" group="aoboi2" />
+    </modules>
+  </component>
+</project>
